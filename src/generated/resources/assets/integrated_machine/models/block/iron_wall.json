@@ -1,0 +1,20 @@
+{
+  "corner_cut": false,
+  "loader": "integrated_machine:connect_model",
+  "requirements": [
+    {
+      "block": "integrated_machine:iron_wall"
+    },
+    {
+      "property": {
+        "active": true
+      },
+      "tag": "integrated_machine:compartment_interface"
+    }
+  ],
+  "texture_set": "set",
+  "textures": {
+    "particle": "integrated_machine:block/iron_wall_all",
+    "set": "integrated_machine:block/iron_wall"
+  }
+}

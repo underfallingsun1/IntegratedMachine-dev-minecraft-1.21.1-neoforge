@@ -1,12 +1,9 @@
 package com.afs.integratedMachine.recipe;
 
 import com.afs.integratedMachine.utils.Meta;
-import com.afs.integratedMachine.utils.Utils;
-import com.afs.integratedMachine.recipe.utils.SimpleRecipeSerializer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class IMRecipes {

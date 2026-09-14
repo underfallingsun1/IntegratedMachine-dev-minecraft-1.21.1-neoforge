@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:item/generated",
+  "overrides": [
+    {
+      "model": "integrated_machine:item/xp_gem/almost_empty_xp_gem",
+      "predicate": {
+        "integrated_machine:percentage": 0.2
+      }
+    },
+    {
+      "model": "integrated_machine:item/xp_gem/half_xp_gem",
+      "predicate": {
+        "integrated_machine:percentage": 0.5
+      }
+    },
+    {
+      "model": "integrated_machine:item/xp_gem/almost_fullxp_gem",
+      "predicate": {
+        "integrated_machine:percentage": 0.8
+      }
+    },
+    {
+      "model": "integrated_machine:item/xp_gem/full_xp_gem",
+      "predicate": {
+        "integrated_machine:percentage": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "integrated_machine:item/empty_xp_gem"
+  }
+}

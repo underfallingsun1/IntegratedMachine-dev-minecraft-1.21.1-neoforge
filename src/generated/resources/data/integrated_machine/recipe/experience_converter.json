@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "integrated_machine:xp_gem"
+    },
+    "I": {
+      "item": "integrated_machine:steel_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "X": {
+      "item": "minecraft:experience_bottle"
+    }
+  },
+  "pattern": [
+    "IGI",
+    "IXI",
+    "IRI"
+  ],
+  "result": {
+    "count": 1,
+    "id": "integrated_machine:experience_converter"
+  }
+}

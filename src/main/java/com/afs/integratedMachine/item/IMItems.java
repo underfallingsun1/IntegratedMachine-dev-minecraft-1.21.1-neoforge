@@ -1,13 +1,16 @@
 package com.afs.integratedMachine.item;
 
 import com.afs.integratedMachine.block.IMBlocks;
+import com.afs.integratedMachine.fluid.IMFluids;
 import com.afs.integratedMachine.utils.LangComps;
 import com.afs.integratedMachine.utils.Meta;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -28,10 +31,20 @@ public class IMItems {
 
     public static final DeferredItem<BlockItem> BASIC_COMPARTMENT_CONTROLLER = ITEMS.registerSimpleBlockItem(IMBlocks.BASIC_COMPARTMENT_CONTROLLER);
     public static final DeferredItem<BlockItem> IRON_WALL = ITEMS.registerSimpleBlockItem(IMBlocks.IRON_WALL);
+    public static final DeferredItem<BlockItem> XP_LANTERN = ITEMS.registerSimpleBlockItem(IMBlocks.XP_LANTERN);
+    public static final DeferredItem<BlockItem> EXPERIENCE_CONVERTER = ITEMS.registerSimpleBlockItem(IMBlocks.EXPERIENCE_CONVERTER);
 
     public static final DeferredItem<BlockItem> TEST_BLOCK = ITEMS.registerSimpleBlockItem(IMBlocks.TEST_BLOCK);
 
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Meta.MODID);
+
+    public static final DeferredItem<XpGemItem> XP_GEM = ITEMS.registerItem("xp_gem", XpGemItem::new);
+
+    public static final DeferredItem<BucketItem> LIQUID_EXPERIENCE_BUCKET = ITEMS.registerItem(
+            "liquid_experience_bucket",
+            p -> new BucketItem(IMFluids.LIQUID_EXPERIENCE_SOURCE.get(),
+                    p.craftRemainder(Items.BUCKET).stacksTo(1))
+    );
 
     public static final List<DeferredHolder<Item, ?>> HIDDEN_ITEMS = List.of(
             TEST_BLOCK

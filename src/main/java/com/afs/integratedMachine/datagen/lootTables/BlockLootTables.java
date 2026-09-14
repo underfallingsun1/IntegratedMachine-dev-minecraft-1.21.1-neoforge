@@ -22,5 +22,7 @@ public class BlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(IMBlocks.BASIC_COMPARTMENT_CONTROLLER.get());
         dropSelf(IMBlocks.IRON_WALL.get());
+        dropSelf(IMBlocks.EXPERIENCE_CONVERTER.get());
+        add(IMBlocks.XP_LANTERN.get(), createSilkTouchOnlyTable(IMBlocks.XP_LANTERN));
     }
 }

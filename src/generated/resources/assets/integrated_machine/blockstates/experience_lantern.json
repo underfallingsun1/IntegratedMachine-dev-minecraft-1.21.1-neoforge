@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "integrated_machine:block/experience_lantern"
+    }
+  }
+}

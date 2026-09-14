@@ -7,6 +7,7 @@ import com.afs.integratedMachine.datagen.model.BlockModels;
 import com.afs.integratedMachine.datagen.model.ItemModels;
 import com.afs.integratedMachine.datagen.recipes.Recipes;
 import com.afs.integratedMachine.datagen.tag.BTags;
+import com.afs.integratedMachine.datagen.tag.FTags;
 import com.afs.integratedMachine.datagen.tag.ITags;
 import com.afs.integratedMachine.utils.Meta;
 import net.minecraft.data.loot.LootTableProvider;
@@ -28,6 +29,8 @@ public class DataGeneration {
         e.createProvider(output -> new BlockModels(output, e.getExistingFileHelper()));
         e.createBlockAndItemTags((output, registry)
                 -> new BTags(output, registry, e.getExistingFileHelper()), ITags::new);
+        e.createProvider((output, registry)
+                -> new FTags(output, registry, e.getExistingFileHelper()));
         e.createProvider((output, registry) -> new LootTableProvider(
                 output, Set.of(), List.of(
                             new LootTableProvider.SubProviderEntry(BlockLootTables::new, LootContextParamSets.BLOCK)

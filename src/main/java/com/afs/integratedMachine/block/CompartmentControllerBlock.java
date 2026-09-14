@@ -65,11 +65,12 @@ public class CompartmentControllerBlock extends Block implements EntityBlock {
 
     @Override
     protected MapCodec<? extends Block> codec() {
-        return IMBlocks.COMPARTMENT_CONTROLLER_BLOCK_CODEC.get();
+        return IMBlocks.COMPARTMENT_CONTROLLER_BLOCK_TYPE.get();
     }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
 

@@ -21,4 +21,12 @@ public class IMBlockEntityTypes {
                             IMBlocks.BASIC_COMPARTMENT_CONTROLLER.get()
                             )
                             .build(null));
+
+    public static final Supplier<BlockEntityType<ExperienceConverterBlockEntity>> EXPERIENCE_CONVERTER =
+            BE_TYPES.register("experience_converter", ()->
+                    BlockEntityType.Builder.of(
+                            ExperienceConverterBlockEntity::new,
+                            IMBlocks.EXPERIENCE_CONVERTER.get()
+                            )
+                            .build(null));
 }

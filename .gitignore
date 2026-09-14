@@ -11,7 +11,9 @@ out
 *.ipr
 *.iws
 *.iml
+logs
 .idea
+AGENTS.md
 
 # gradle
 build

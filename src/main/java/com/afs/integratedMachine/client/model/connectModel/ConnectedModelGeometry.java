@@ -24,10 +24,12 @@ import java.util.function.Function;
 public class ConnectedModelGeometry implements IUnbakedGeometry<ConnectedModelGeometry> {
     private final String textureSetId;
     private final List<ConnectPredicate> predicates;
+    private final boolean cornerCut;
 
-    public ConnectedModelGeometry(String textureSetId, List<ConnectPredicate> predicates) {
+    public ConnectedModelGeometry(String textureSetId, List<ConnectPredicate> predicates, boolean cornerCut) {
         this.textureSetId = textureSetId;
         this.predicates = predicates;
+        this.cornerCut = cornerCut;
     }
 
     /*
@@ -176,6 +178,6 @@ public class ConnectedModelGeometry implements IUnbakedGeometry<ConnectedModelGe
         TextureAtlasSprite particle = spriteGetter.apply(context.getMaterial("particle"));
         TextureAtlasSprite textureSet = spriteGetter.apply(context.getMaterial(textureSetId));
         return new ConnectedModel(context.useAmbientOcclusion(), context.isGui3d(), context.useBlockLight(),
-                particle, predicates, bakeQuads(textureSet), overrides);
+                particle, predicates, bakeQuads(textureSet), overrides, cornerCut);
     }
 }

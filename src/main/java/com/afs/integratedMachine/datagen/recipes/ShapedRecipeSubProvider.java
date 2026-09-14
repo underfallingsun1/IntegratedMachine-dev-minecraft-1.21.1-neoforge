@@ -11,6 +11,15 @@ import net.neoforged.neoforge.common.Tags;
 
 public class ShapedRecipeSubProvider {
     public static void run(RecipeOutput output){
-        
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, IMItems.EXPERIENCE_CONVERTER.get())
+                .pattern("IGI")
+                .pattern("IXI")
+                .pattern("IRI")
+                .define('I', IMItems.STEEL_INGOT.get())
+                .define('G', IMItems.XP_GEM.get())
+                .define('X', Items.EXPERIENCE_BOTTLE)
+                .define('R', Items.REDSTONE_BLOCK)
+                .unlockedBy("has_xp_gem", AdvancementUtils.hasItem(IMItems.XP_GEM.get()))
+                .save(output);
     }
 }

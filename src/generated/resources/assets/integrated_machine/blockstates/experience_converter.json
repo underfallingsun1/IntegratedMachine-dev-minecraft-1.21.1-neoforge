@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "integrated_machine:block/experience_converter",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "integrated_machine:block/experience_converter",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "integrated_machine:block/experience_converter",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "integrated_machine:block/experience_converter",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "integrated_machine:block/experience_converter"
+    },
+    "facing=west": {
+      "model": "integrated_machine:block/experience_converter",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

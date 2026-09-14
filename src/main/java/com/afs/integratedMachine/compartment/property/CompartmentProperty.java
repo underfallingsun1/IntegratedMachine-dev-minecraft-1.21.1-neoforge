@@ -1,46 +1,32 @@
 package com.afs.integratedMachine.compartment.property;
 
+import com.afs.integratedMachine.compartment.blockGroup.BlockGroupList;
 import com.afs.integratedMachine.utils.Utils;
-import net.minecraft.core.BlockPos;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.registries.RegistryBuilder;
 
-import java.util.function.Supplier;
+import java.util.function.Function;
 
-public class CompartmentProperty<T> {
-    private final String id;
-    private final T defaultValue;
-    private final Supplier<ValueCalculator<T>> valueCalculatorGetter;
+public interface CompartmentProperty {
+    MapCodec<? extends CompartmentProperty> codec();
 
-    public CompartmentProperty(String id, T defaultValue, Supplier<ValueCalculator<T>> valueCalculatorGetter){
-        this.id = id;
-        this.defaultValue = defaultValue;
-        this.valueCalculatorGetter = valueCalculatorGetter;
-    }
+    int getPropertyValue(Level level, BlockGroupList blocks);
 
-    public String getId() {
-        return id;
-    }
+    ResourceKey<Registry<MapCodec<? extends CompartmentProperty>>> COMPARTMENT_PROPERTY_TYPE_KEY =
+            ResourceKey.createRegistryKey(Utils.modLoc("compartment_property_type"));
 
-    public T getDefaultValue(){
-        return defaultValue;
-    }
-
-    public ValueCalculator<T> getCalculator(){
-        return valueCalculatorGetter.get();
-    }
-
-    public interface ValueCalculator<T>{
-        void add(BlockPos pos, T value);
-        T calculate();
-    }
-
-    public static final ResourceKey<Registry<CompartmentProperty<?>>> COMPARTMENT_PROPERTY_TYPE =
-            ResourceKey.createRegistryKey(Utils.modLoc("compartment_property"));
-
-    public static final Registry<CompartmentProperty<?>> COMPARTMENT_PROPERTY_REGISTRY =
-            new RegistryBuilder<>(COMPARTMENT_PROPERTY_TYPE)
-                    .sync(true)
+    Registry<MapCodec<? extends CompartmentProperty>> COMPARTMENT_PROPERTY_TYPE_REGISTRY =
+            new RegistryBuilder<>(COMPARTMENT_PROPERTY_TYPE_KEY)
+                    .sync(false)
                     .create();
+
+    Codec<CompartmentProperty> CODEC = COMPARTMENT_PROPERTY_TYPE_REGISTRY.byNameCodec()
+            .dispatch(CompartmentProperty::codec, Function.identity());
+
+    ResourceKey<Registry<CompartmentProperty>> COMPARTMENT_PROPERTY_KEY =
+            ResourceKey.createRegistryKey(Utils.modLoc("compartment_property"));
 }

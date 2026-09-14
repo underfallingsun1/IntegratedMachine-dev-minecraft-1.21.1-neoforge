@@ -1,5 +1,6 @@
 package com.afs.integratedMachine.dataMap;
 
+import com.afs.integratedMachine.compartment.property.CompartmentBlockProperty;
 import com.afs.integratedMachine.utils.Meta;
 import com.afs.integratedMachine.utils.Utils;
 import com.mojang.serialization.Codec;
@@ -15,6 +16,6 @@ public class IMDataMaps {
 
     @SubscribeEvent
     public static void register(RegisterDataMapTypesEvent e){
-
+        e.register(CompartmentBlockProperty.COMPARTMENT_BLOCK_PROPERTIES);
     }
 }

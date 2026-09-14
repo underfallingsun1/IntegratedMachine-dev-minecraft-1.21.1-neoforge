@@ -9,6 +9,7 @@ import com.afs.integratedMachine.utils.tags.IMBlockTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 
 import java.util.Map;
@@ -23,6 +24,7 @@ public class BlockModels extends BlockStateProvider {
         simpleBlockWithItem(IMBlocks.BASIC_COMPARTMENT_CONTROLLER.get(),
                 cubeAll(IMBlocks.BASIC_COMPARTMENT_CONTROLLER.get()));
         simpleBlockWithItem(IMBlocks.TEST_BLOCK.get(), cubeAll(IMBlocks.TEST_BLOCK.get()));
+        simpleBlockWithItem(IMBlocks.XP_LANTERN.get(), cubeAll(IMBlocks.XP_LANTERN.get()));
 
         simpleBlockItem(IMBlocks.IRON_WALL.get(), models().cubeAll("iron_wall_all", modBlockLoc("iron_wall_all")));
         simpleBlock(IMBlocks.IRON_WALL.get(), models().getBuilder("iron_wall")
@@ -33,8 +35,13 @@ public class BlockModels extends BlockStateProvider {
                 .addPredicates(ConnectPredicate.ofBlock(IMBlocks.IRON_WALL.get(), Map.of()))
                 .addPredicates(ConnectPredicate.ofTag(IMBlockTags.COMPARTMENT_INTERFACE, Map.of(IMBlockStateProperties.ACTIVE, true)))
                 .setTextureSet("set")
+                .setCornerCut(true)
                 .end()
         );
+
+        ModelFile converterModel = new ModelFile.UncheckedModelFile(modLoc("block/experience_converter"));
+        directionalBlock(IMBlocks.EXPERIENCE_CONVERTER.get(), converterModel);
+        simpleBlockItem(IMBlocks.EXPERIENCE_CONVERTER.get(), converterModel);
     }
 
     private ResourceLocation modBlockLoc(String path){

@@ -15,11 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class BlockChangeEvent {
     @Inject(method = "onRemove", at = @At("HEAD"))
     public void onBlockChange(BlockState state, Level level, BlockPos pos, BlockState newState, boolean movedByPiston, CallbackInfo ci){
-        if(!newState.is(state.getBlock())){
-            ChunkAccess c = level.getChunk(pos);
-            if(c.hasData(IMDataAttachments.COMPARTMENTS)){
+        //handle compartment changes
 
-            }
-        }
     }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "integrated_machine:item/almost_full_xp_gem"
+  }
+}

@@ -25,6 +25,7 @@ public class BTags extends BlockTagsProvider {
                 IMBlocks.IRON_WALL.get());
         tag(IMBlockTags.COMPARTMENT_CONTROLLER).add(IMBlocks.BASIC_COMPARTMENT_CONTROLLER.get());
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(IMBlocks.BASIC_COMPARTMENT_CONTROLLER.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(IMBlocks.EXPERIENCE_CONVERTER.get());
         tag(IMBlockTags.COMPARTMENT_INTERFACE).addTags(IMBlockTags.COMPARTMENT_CONTROLLER);
     }
 }

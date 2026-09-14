@@ -1,15 +1,12 @@
 package com.afs.integratedMachine.datagen.model.builder;
 
-import com.afs.integratedMachine.client.model.connectModel.ConnectModelLoader;
+import com.afs.integratedMachine.client.model.connectModel.ConnectedModelLoader;
 import com.afs.integratedMachine.client.model.connectModel.ConnectPredicate;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.ibm.icu.impl.duration.impl.DataRecord;
 import com.mojang.serialization.DataResult;
 import com.mojang.serialization.JsonOps;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
 import net.neoforged.neoforge.client.model.generators.CustomLoaderBuilder;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
@@ -19,11 +16,12 @@ import java.util.List;
 
 public class ConnectedModelBuilder extends CustomLoaderBuilder<BlockModelBuilder> {
     public ConnectedModelBuilder(BlockModelBuilder parent, ExistingFileHelper existingFileHelper) {
-        super(ConnectModelLoader.ID, parent, existingFileHelper, false);
+        super(ConnectedModelLoader.ID, parent, existingFileHelper, false);
     }
 
     private String textureSet;
-    private List<ConnectPredicate> predicates = new ArrayList<>();
+    private final List<ConnectPredicate> predicates = new ArrayList<>();
+    private boolean cornerCut = false;
 
     public ConnectedModelBuilder setTextureSet(String textureSet){
         this.textureSet = textureSet;
@@ -32,6 +30,11 @@ public class ConnectedModelBuilder extends CustomLoaderBuilder<BlockModelBuilder
 
     public ConnectedModelBuilder addPredicates(ConnectPredicate predicate){
         this.predicates.add(predicate);
+        return this;
+    }
+
+    public ConnectedModelBuilder setCornerCut(boolean cornerCut){
+        this.cornerCut = cornerCut;
         return this;
     }
 
@@ -50,6 +53,7 @@ public class ConnectedModelBuilder extends CustomLoaderBuilder<BlockModelBuilder
             }
             json.add("requirements", jArray);
         }
+        json.addProperty("corner_cut", cornerCut);
         return super.toJson(json);
     }
 }

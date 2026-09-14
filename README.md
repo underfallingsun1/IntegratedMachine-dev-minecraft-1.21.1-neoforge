@@ -5,7 +5,7 @@
 ## What`s this
 
 this is a mod of [minecraft][mc] developed by [neoforge][nf]. the lastest version
-is based on minecraft `1.21.1` and neoforge `21.1.211`. This mod add lots of
+is based on minecraft `1.21.1` and neoforge `21.1.250`. This mod add lots of
 useful and highly customizable multiblock machines for the game. this mod still
 in its early development.
 
